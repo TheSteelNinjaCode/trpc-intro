@@ -1,8 +1,19 @@
 import { initTRPC } from '@trpc/server';
+import Decimal from 'decimal.js';
+import superjson from 'superjson';
  
-// You can use any variable name you like.
-// We use t to keep things simple.
-const t = initTRPC.create();
+superjson.registerCustom<Decimal, string>(
+    {
+      isApplicable: (v): v is Decimal => Decimal.isDecimal(v),
+      serialize: (v) => v.toJSON(),
+      deserialize: (v) => new Decimal(v),
+    },
+    "decimal.js",
+  );
+  
+const t = initTRPC.create({
+    transformer: superjson,
+});
  
 export const router = t.router;
 export const middleware = t.middleware;

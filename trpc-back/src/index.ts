@@ -4,6 +4,7 @@ import { publicProcedure, router } from "./trpc";
 import { userRouter } from "./routers/userRouter";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
 import dotenv from "dotenv";
+import { productRouter } from "./routers/product";
 dotenv.config();
 
 export const appRouter = router({
@@ -11,6 +12,7 @@ export const appRouter = router({
     return "Hello world!";
   }),
   user: userRouter,
+  product: productRouter,
 });
 
 const app = express();

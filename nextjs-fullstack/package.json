@@ -14,9 +14,11 @@
     "@trpc/client": "^10.44.1",
     "@trpc/react-query": "^10.44.1",
     "@trpc/server": "^10.44.1",
+    "decimal.js": "^10.4.3",
     "next": "14.0.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "superjson": "^2.2.1"
   },
   "devDependencies": {
     "@types/node": "^20",
